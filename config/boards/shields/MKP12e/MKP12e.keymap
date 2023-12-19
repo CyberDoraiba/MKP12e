@@ -22,6 +22,20 @@
         sensors = <&encoder_1>;
         triggers-per-rotation = <20>;
     };
+
+    behaviors {
+        rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        bt_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&bt BT_PRV>, <&bt BT_NXT>;
+        };
+    };
     
     keymap {
         compatible = "zmk,keymap";
@@ -68,7 +82,7 @@
                 &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD     &none
                 &rgb_ug RGB_EFF         &rgb_ug RGB_EFR             &to 3             &none
             >;
-            sensor-bindings = <&rgb_ug RGB_BRI RGB_BRD>;
+            sensor-bindings = <&rgb_encoder>;
         };
 
         sys_layer {
@@ -83,7 +97,7 @@
                 &bt BT_SEL 3 &bt BT_SEL 4 &none            &sys_reset
                 &out OUT_BLE     &out OUT_USB              &to 0         &bootloader
             >;
-            sensor-bindings = <&bt BT_PRV BT_NXT>;
+            sensor-bindings = <&bt_encoder>;
         };
     };
 };
