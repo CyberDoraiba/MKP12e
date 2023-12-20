@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 // layers
 #define DEFAULT 0
@@ -68,13 +69,13 @@
             //                               ---------------------
             // |-----------------------------| RGB_BRI | RGB_BRD |
             // | RGB_HUI | RGB_SAI | RGB_SPI |      RGB_TOG      | 
-            // | RGB_HUD | RGB_SAD | RGB_SPD |         NA        |--------- 
-            // | RGB_EFF |      RGB_EFR      |       Layer3      |   NA   |
-            // ------------------------------------------------------------
+            // | RGB_HUD | RGB_SAD | RGB_SPD |    啟用外部電源    |-------------- 
+            // | RGB_EFF |      RGB_EFR      |       Layer3      | 禁用外部電源 |
+            // -----------------------------------------------------------------
             bindings = <
                 &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI     &rgb_ug RGB_TOG
-                &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD     &none
-                &rgb_ug RGB_EFF         &rgb_ug RGB_EFR             &to 3             &none
+                &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD     &ext_power EP_ON
+                &rgb_ug RGB_EFF         &rgb_ug RGB_EFR             &to 3             &ext_power EP_OFF
             >;
             sensor-bindings = <&rgb_encoder>;
         };
