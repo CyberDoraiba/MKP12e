@@ -17,6 +17,10 @@
 #define RGB     2
 #define SYS     3
 
+&encoder_1 {
+    status = "okay";
+};
+
 / {
     sensors {
         compatible = "zmk,keymap-sensors";
