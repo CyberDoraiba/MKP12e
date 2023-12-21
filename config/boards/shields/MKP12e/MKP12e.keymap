@@ -47,7 +47,7 @@
             // |   快速層  |     清除圖層     |   Layer3   |  畫筆  |
             // ----------------------------------------------------
             bindings = <
-                &kp M       &kp L       &kp E      &kp LG(O)
+                &kp M       &kp L       &kp E      &kp LG(N0)
                 &kp S       &kp V       &kp C      &kp SPACE
                 &mo 1           &kp LG(DEL)        &to 2       &kp B
             >;
@@ -62,7 +62,7 @@
             // |    NA   |      取消選取      |      NA     | 拷貝全部 |
             // -------------------------------------------------------
             bindings = <
-                &kp LG(K)  &kp LG(U)  &kp LG(B)     &kp LG(O)
+                &kp LG(K)  &kp LG(U)  &kp LG(B)     &kp LG(N0)
                 &kp LG(C)  &kp LG(X)  &kp LG(V)     &kp LG(J)
                 &none           &kp LG(D)           &none     &kp LG(A)
             >;
@@ -87,13 +87,13 @@
         sys_layer {
             //                                  ---------------------
             // |--------------------------------|    NA   |    NA   |
-            // | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 |       BT_CLR      | 
-            // | BT_SEL 3 | BT_SEL 4 |    NA    |       OUT_BLE     |------------
+            // | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 |         NA        | 
+            // | BT_SEL 3 | BT_SEL 4 | BT_CLR   |       OUT_BLE     |------------
             // |    NA    |     sys_reset       |         NA        |  OUT_USB  |
             // ------------------------------------------------------------------
             bindings = <
-                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_CLR
-                &bt BT_SEL 3 &bt BT_SEL 4 &none            &out OUT_BLE
+                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &none
+                &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR       &out OUT_BLE
                 &none            &sys_reset                &none       &out OUT_USB    
             >;
         };
