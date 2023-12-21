@@ -49,7 +49,7 @@
             bindings = <
                 &kp M       &kp L       &kp E      &kp LG(N0)
                 &kp S       &kp V       &kp C      &kp SPACE
-                &mo 1           &kp LG(DEL)        &to 2       &kp B
+                &mo 1           &kp LG(BSPC)        &to 2       &kp B
             >;
             sensor-bindings = <&inc_dec_kp LG(Z) LG(LS(Z))>;
         };
