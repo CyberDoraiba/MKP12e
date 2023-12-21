@@ -48,7 +48,7 @@
             bindings = <
                 &kp M       &kp L       &kp E      &kp LG(O)
                 &kp S       &kp V       &kp C      &kp SPACE
-                &mo 1           &kp LG(DEL)        &tog 2       &kp B
+                &mo 1           &kp LG(DEL)        &to 2       &kp B
             >;
             sensor-bindings = <&inc_dec_kp LG(Z) LG(LS(Z))>;
         };
@@ -63,7 +63,7 @@
             bindings = <
                 &kp LG(K)  &kp LG(U)  &kp LG(B)     &kp LG(O)
                 &kp LG(C)  &kp LG(X)  &kp LG(V)     &kp LG(J)
-                &trans          &kp LG(D)           &trans     &kp LG(A)
+                &none           &kp LG(D)           &to 2     &kp LG(A)
             >;
             sensor-bindings = <&inc_dec_kp LG(Z) LG(LS(Z))>;
         };
@@ -76,9 +76,9 @@
             // | RGB_EFF |      RGB_EFR      |       Layer3      |      NA     |
             // -----------------------------------------------------------------
             bindings = <
-                &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI     &rgb_ug RGB_TOG
+                &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI     &none
                 &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD     &none
-                &rgb_ug RGB_EFF         &rgb_ug RGB_EFR             &tog 3             &none
+                &rgb_ug RGB_EFF         &rgb_ug RGB_EFR             &to 3           &rgb_ug RGB_TOG
             >;
             sensor-bindings = <&rgb_encoder>;
         };
@@ -93,7 +93,7 @@
             bindings = <
                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bootloader
                 &bt BT_SEL 3 &bt BT_SEL 4 &none            &sys_reset
-                &out OUT_BLE     &out OUT_USB              &tog 0         &bt BT_CLR
+                &out OUT_BLE     &out OUT_USB              &to 0         &bt BT_CLR
             >;
         };
     };
