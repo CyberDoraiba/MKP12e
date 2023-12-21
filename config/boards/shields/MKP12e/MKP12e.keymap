@@ -64,7 +64,7 @@
             bindings = <
                 &kp LG(K)  &kp LG(U)  &kp LG(B)     &kp LG(O)
                 &kp LG(C)  &kp LG(X)  &kp LG(V)     &kp LG(J)
-                &none           &kp LG(D)           &to 2     &kp LG(A)
+                &none           &kp LG(D)           &none     &kp LG(A)
             >;
             sensor-bindings = <&inc_dec_kp LG(Z) LG(LS(Z))>;
         };
@@ -74,12 +74,12 @@
             // |-----------------------------| RGB_BRI | RGB_BRD |
             // | RGB_HUI | RGB_SAI | RGB_SPI |      RGB_TOG      | 
             // | RGB_HUD | RGB_SAD | RGB_SPD |       EP_ON       |-------------- 
-            // | RGB_EFF |      RGB_EFR      |       Layer3      |    EP_OFF   |
+            // | TO BT_L |      RGB_EFR      |       Layer3      |    EP_OFF   |
             // -----------------------------------------------------------------
             bindings = <
                 &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_SPI     &rgb_ug RGB_TOG
                 &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_SPD     &ext_power EP_ON
-                &rgb_ug RGB_EFF         &rgb_ug RGB_EFR             &to 3             &ext_power EP_OFF
+                &mo 3           &rgb_ug RGB_EFR                     &to 0             &ext_power EP_OFF
             >;
             sensor-bindings = <&rgb_encoder>;
         };
@@ -87,14 +87,14 @@
         sys_layer {
             //                                  ---------------------
             // |--------------------------------|    NA   |    NA   |
-            // | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 |     bootloader    | 
-            // | BT_SEL 3 | BT_SEL 4 |    NA    |      sys_reset    |-------------
-            // | OUT_BLEF |       OUT_USB       |       Layer0      |   BT_CLR   |
-            // -------------------------------------------------------------------
+            // | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 |       BT_CLR      | 
+            // | BT_SEL 3 | BT_SEL 4 |    NA    |       OUT_BLE     |------------
+            // |    NA    |     sys_reset       |         NA        |  OUT_USB  |
+            // ------------------------------------------------------------------
             bindings = <
-                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bootloader
-                &bt BT_SEL 3 &bt BT_SEL 4 &none            &sys_reset
-                &out OUT_BLE     &out OUT_USB              &to 0         &bt BT_CLR
+                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_CLR
+                &bt BT_SEL 3 &bt BT_SEL 4 &none            &out OUT_BLE
+                &none            &sys_reset                &none       &out OUT_USB    
             >;
         };
     };
